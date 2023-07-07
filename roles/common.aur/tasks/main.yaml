@@ -1,0 +1,26 @@
+---
+- name: Check if Yay is installed
+  shell: "yay --version"
+  become: no
+  failed_when: "yay_check == 2"
+  register: yay_check
+  changed_when: false
+
+- debug:
+    msg: "{{ yay_check.stdout }}"
+
+- name: Git Clone Yay
+  git:
+    dest: "/tmp"
+    repo: "{{ yay_repo }}"
+  when: "yay_check == 2"
+
+- name: Install Yay
+  shell: "cd /tmp/yay-bin && makepkg -si"
+  become: no
+  failed_when: "yay_make == 2"
+  register: yay_make
+  when: "yay_check == 2"
+
+- include_tasks: apps.yaml
+  when: yay_check != 2

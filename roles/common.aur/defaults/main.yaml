@@ -1,0 +1,5 @@
+yay_repo: "https://aur.archlinux.org/yay-bin.git"
+
+# aur packages
+aur_packages:
+  - sublime-text-4
