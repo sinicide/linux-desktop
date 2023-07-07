@@ -1,0 +1,4 @@
+# core apps
+pacman_core_apps:
+  - git
+  - tree

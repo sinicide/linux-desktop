@@ -1,0 +1,6 @@
+- name: Pacman Updates
+  pacman:
+    update_cache: yes
+    upgrade: yes
+
+- import_tasks: apps.yaml
