@@ -4,6 +4,7 @@
 # install apps from pacman and AUR
 
 - name: Install OS Packages
+  hosts: desktop
   tags: os
   tasks:
     - import_role:
