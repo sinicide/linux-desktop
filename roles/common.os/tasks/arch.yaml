@@ -1,0 +1,5 @@
+- name: Pacman Updates
+  pacman:
+    update_cache: yes
+    upgrade: yes
+  become: true
