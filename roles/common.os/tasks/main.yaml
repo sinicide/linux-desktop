@@ -3,5 +3,5 @@
     gather_subset:
       - os_family
 
-- import_tasks: arch.yaml
+- include_tasks: arch.yaml
   when: ansible_facts.os_family == "Archlinux"
