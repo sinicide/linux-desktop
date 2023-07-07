@@ -1,7 +1,7 @@
-- name: Pacman Updates
-  pacman:
-    update_cache: yes
-    upgrade: yes
-  become: true
+- name: Gather OS Facts
+  setup:
+    gather_subset:
+      - os_family
 
-- import_tasks: apps.yaml
+- import_tasks: arch.yaml
+  when: ansible_facts.os_family == "Archlinux"
