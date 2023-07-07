@@ -1,0 +1,16 @@
+# install OS package
+# install AUR
+# configure user dotfiles
+# install apps from pacman and AUR
+
+- name: Install OS Packages
+  tags: os
+  tasks:
+    - import_role:
+        name: common.os
+
+# - name: Install AUR Packages
+#   tags: aur
+#   tasks:
+#     - import_role:
+#         name: common.aur
