@@ -3,5 +3,10 @@
     gather_subset:
       - os_family
 
+- name: Check for Virtualization Enabled
+  set_fact:
+    virt_enabled: true
+  when: ansible_facts.virtualization_type is defined
+
 - include_tasks: arch.yaml
   when: ansible_facts.os_family == "Archlinux"
