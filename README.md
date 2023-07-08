@@ -10,29 +10,13 @@ Automated deployment of my Desktop Environment (Linux of course)
 - [ ] Deploy dotfiles
 
 ### Apps List
-- blender
-- discord
-- docker
-- docker-compose
-- dolphin
-- gimp
-- github-cli
-- handbrake
-- mkvtoolnix-cli
-- mkvtoolnix-gui
-- nextcloud-client
-- nvidia
-- nvidia-settings
-- nvtop
-- obs-studio
-- obsidian
-- okular
-- steam
-- terraform
-- tmux
-- veracrypt
-- vim
-- virt-manager
-- vlc
-- zsh
-- keybase
+- appimagelauncher settings
+- autodesk fusion 360 (snap)
+- braytech and dim
+- dropbox
+- raspberry pi imager (snap)
+- mpv player
+- prusaslicer (Appimage)
+- spectacle (screenshot)
+- spotify (snap)
+- tradingstock (snap)
