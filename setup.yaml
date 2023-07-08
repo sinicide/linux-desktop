@@ -16,3 +16,17 @@
   tasks:
     - import_role:
         name: common.aur
+
+- name: Install Snap Packages
+  hosts: desktop
+  tags: snap
+  tasks:
+    - import_role:
+        name: common.snap
+
+- name: Install AppImage Applications
+  hosts: desktop
+  tags: appimage
+  tasks:
+    - import_role:
+        name: common.appimage
