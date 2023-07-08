@@ -1,0 +1,11 @@
+---
+- name: Pacman Updates
+  pacman:
+    update_cache: yes
+    upgrade: no
+  become: true
+
+- name: Install NUT (Pacman)
+  pacman:
+    name: "nut"
+    state: present
