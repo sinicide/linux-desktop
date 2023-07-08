@@ -2,6 +2,7 @@
 all:
   vars:
     ansible_connection: local
+    laptop: false
 
 desktop:
   hosts:
