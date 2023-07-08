@@ -12,10 +12,15 @@ pacman_core_apps:
   - nextcloud-client
   - keybase
   - fzf
+  - stow
+  - zip
+  - unzip
+  - unrar
 
 # Terminal Emulators
 terminal_apps:
   - alacritty
+  - xterm
 
 # File Manager
 filemanager_apps:
@@ -53,6 +58,7 @@ virt_apps:
 dev_apps:
   - terraform
   - github-cli
+  - kubectl
 
 # Audio and Video
 media_apps:
