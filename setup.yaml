@@ -10,8 +10,9 @@
     - import_role:
         name: common.os
 
-# - name: Install AUR Packages
-#   tags: aur
-#   tasks:
-#     - import_role:
-#         name: common.aur
+- name: Install AUR Packages
+  hosts: desktop
+  tags: aur
+  tasks:
+    - import_role:
+        name: common.aur
