@@ -10,11 +10,20 @@ Automated deployment of my Desktop Environment (Linux of course)
 - [ ] Deploy dotfiles
 
 ### Apps List
-- appimagelauncher settings
-- autodesk fusion 360 (snap)
 - braytech and dim
-- dropbox
-- mpv player
-- prusaslicer (Appimage)
 - spectacle (screenshot)
-- spotify (snap)
+
+## Install Requirements
+```
+ansible-galaxy install -r requirements.yaml
+```
+
+## Run Play
+```
+ansible-playbook -K -i localhost.yaml setup.yaml
+```
+
+### For Laptop
+```
+ansible-playbook -K -i localhost.yaml setup.yaml --extra-vars "laptop=true"
+```
