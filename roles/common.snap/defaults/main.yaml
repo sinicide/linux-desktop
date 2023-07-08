@@ -1,0 +1,5 @@
+snap_core_packages:
+  - rpi-imager
+  - tradingview
+  - spotify
+  - signal-desktop
