@@ -1,7 +1,33 @@
 ---
-- name: Installing apps
+- name: Check for Nvidia Card
+  shell: "lspci -k | grep -A 2 -E \"(VGA|3D)\""
+  become: no
+  failed_when: "nvidia_check == 2"
+  register: nvidia_check
+  changed_when: false
+
+- name: Set Base Apps to Install
+  set_fact:
+    aur_combined_apps: "{{ aur_core_packages + dev_apps }}"
+
+- name: Combined with Audio/Video Apps
+  set_fact:
+    aur_combined_apps: "{{ aur_combined_apps + av_edit_apps }}"
+  when: "av_enabled == true"
+
+- name: Combined with Streaming/Production Apps
+  set_fact:
+    aur_combined_apps: "{{ aur_combined_apps + stream_apps }}"
+  when: "stream_enabled == true"
+
+- name: Combined with 3D Printing Apps
+  set_fact:
+    aur_combined_apps: "{{ aur_combined_apps + graphical_apps }}"
+  when: "graphics_card_enabled == true"
+
+- name: Install Apps (AUR)
   kewlfft.aur.aur:
     name: "{{ item }}"
     state: present
     use: yay
-  loop: "{{ dev_apps }}"
+  loop: "{{ aur_combined_apps }}"
