@@ -2,3 +2,21 @@
 pacman_core_apps:
   - git
   - tree
+  - dosfstools
+  - htop
+
+# Terminal Emulators
+terminal_apps:
+  - alacritty
+
+# File Manager
+filemanager_apps:
+  - dolphin
+
+# OS Specific
+hardware_package:
+  - amd-ucode
+
+# Web Browsers
+web_browsers_apps:
+  - firefox
