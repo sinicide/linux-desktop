@@ -1,5 +1,20 @@
 ---
-# install snapd from aur
-#snapd
+- name: Check if Snap is installed
+  shell: "snap version"
+  become: no
+  failed_when: "snap_check == 2"
+  register: snap_check
+  changed_when: false
 
-# install snap apps
+- debug:
+    msg: "{{ snap_check.stdout }}"
+
+- name: Installing snapd from AUR
+  kewlfft.aur.aur:
+    name: "snapd"
+    state: present
+    use: yay
+  when: snap_check != 2
+
+- include_tasks: apps.yaml
+  when: snap_check != 2
