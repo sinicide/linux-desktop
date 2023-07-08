@@ -1,5 +1,0 @@
-- name: Install Core Apps
-  pacman:
-    name: "{{ item }}"
-    state: present
-  loop: "{{ pacman_core_apps }}"
