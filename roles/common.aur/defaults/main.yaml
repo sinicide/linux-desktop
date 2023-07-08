@@ -1,5 +1,28 @@
 yay_repo: "https://aur.archlinux.org/yay-bin.git"
 
 # aur packages
-aur_packages:
+aur_core_packages:
   - sublime-text-4
+  - visual-studio-code-bin
+  - ventoy-bin
+  - tstock
+  - ledger-live-bin
+  - google-chrome
+  - 7-zip-bin
+
+# Audio Video Apps
+av_edit_apps:
+  - subtitleedit
+  - davinci-resolve
+
+# Streaming/Production
+stream_apps:
+  - streamdeck-ui
+
+# 3d printing
+3d_apps:
+  - chitubox-free-bin
+
+# dev tools
+dev_apps:
+  - aws-cli-v2-bin
