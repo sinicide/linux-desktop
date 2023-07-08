@@ -14,9 +14,7 @@ Automated deployment of my Desktop Environment (Linux of course)
 - autodesk fusion 360 (snap)
 - braytech and dim
 - dropbox
-- raspberry pi imager (snap)
 - mpv player
 - prusaslicer (Appimage)
 - spectacle (screenshot)
 - spotify (snap)
-- tradingstock (snap)
