@@ -1,0 +1,7 @@
+---
+- name: Installing apps
+  kewlfft.aur.aur:
+    name: "{{ item }}"
+    state: present
+    use: yay
+  loop: "{{ dev_apps }}"
