@@ -11,6 +11,7 @@ pacman_core_apps:
   - obsidian
   - nextcloud-client
   - keybase
+  - fzf
 
 # Terminal Emulators
 terminal_apps:
