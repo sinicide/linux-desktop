@@ -4,6 +4,13 @@ pacman_core_apps:
   - tree
   - dosfstools
   - htop
+  - zsh
+  - vim
+  - tmux
+  - veracrypt
+  - obsidian
+  - nextcloud-client
+  - keybase
 
 # Terminal Emulators
 terminal_apps:
@@ -20,3 +27,49 @@ hardware_package:
 # Web Browsers
 web_browsers_apps:
   - firefox
+
+# communications
+communication_apps:
+  - discord
+
+# 3d apps
+3d_apps:
+  - blender
+  - steam
+
+nvidia_apps:
+  - nvidia
+  - nvidia-settings
+  - nvtop
+
+# virtualization
+virt_apps:
+  - docker
+  - docker-compose
+  - virt-manager
+
+# dev ops tools
+dev_apps:
+  - terraform
+  - github-cli
+
+# Audio and Video
+media_apps:
+  - vlc
+
+# Audio and Video editing
+av_edit_apps:
+  - handbrake
+  - mkvtoolnix-cli
+  - mkvtoolnix-gui
+  - audacity
+
+# graphics
+graphic_apps:
+  - gimp
+  - okula
+  - krita
+
+# streaming/production
+stream_apps:
+  - obs-studio
