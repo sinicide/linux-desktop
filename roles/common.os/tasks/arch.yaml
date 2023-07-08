@@ -1,12 +1,58 @@
+---
+- name: Check for Nvidia Card
+  shell: "lspci -k | grep -A 2 -E \"(VGA|3D)\""
+  become: no
+  failed_when: "nvidia_check == 2"
+  register: nvidia_check
+  changed_when: false
+
 - name: Pacman Updates
   pacman:
     update_cache: yes
     upgrade: yes
   become: true
 
-- name: Install Core Apps
+- name: Set Base Apps to Install
+  set_fact:
+    pacman_combined_apps: "{{ pacman_core_apps + terminal_apps + filemanager_apps + web_browsers_apps + media_apps  + graphic_apps }}"
+
+- name: Add Nvidia Packages
+  set_fact:
+    pacman_combined_apps: "{{ pacman_combined_apps + nvidia_apps }}"
+  when: "nvidia_enabled == true"
+
+- name: Combine with Communication Apps
+  set_fact:
+    pacman_combined_apps: "{{ pacman_combined_apps + communication_apps }}"
+  when: "comms_enabled == true"
+
+- name: Combine with Graphics Card Apps
+  set_fact:
+    pacman_combined_apps: "{{ pacman_combined_apps + graphical_apps }}"
+  when: "graphics_card_enabled == true"
+
+- name: Combine with Virtualized Development Apps
+  set_fact:
+    pacman_combined_apps: "{{ pacman_combined_apps + virt_apps }}"
+  when: "virt_enabled == true"
+
+- name: Combine with Development Tools
+  set_fact:
+    pacman_combined_apps: "{{ pacman_combined_apps + dev_apps }}"
+  when: "dev_tools_enabled == true"
+
+- name: Combine with Audio/Video Editing Apps
+  set_fact:
+    pacman_combined_apps: "{{ pacman_combined_apps + av_edit_apps }}"
+  when: "av_enabled == true"
+
+- name: Combine with Streaming/Production Apps
+  set_fact:
+    pacman_combined_apps: "{{ pacman_combined_apps + stream_apps }}"
+  when: "streaming_enabled == true"
+
+- name: Install Apps (Pacman)
   pacman:
     name: "{{ item }}"
     state: present
-  loop: "{{ pacman_core_apps }}"
-  become: true
+  loop: "{{ pacman_combined_apps }}"
