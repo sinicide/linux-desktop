@@ -5,7 +5,6 @@ aur_core_packages:
   - sublime-text-4
   - visual-studio-code-bin
   - ventoy-bin
-  - tstock
   - ledger-live-bin
   - google-chrome
   - 7-zip-bin
