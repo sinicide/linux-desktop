@@ -1,6 +1,22 @@
 ---
-- name: Install Core Apps
+- name: Check for Nvidia Card
+  shell: "lspci -k | grep -A 2 -E \"(VGA|3D)\""
+  become: no
+  failed_when: "nvidia_check == 2"
+  register: nvidia_check
+  changed_when: false
+
+- name: Set Base Apps to Install
+  set_fact:
+    snap_combined_apps: "{{ snap_core_packages }}"
+
+- name: Combined with Graphical Apps
+  set_fact:
+    snap_combined_apps: "{{ snap_core_packages + graphical_apps }}"
+  when: "nvidia_check != 2"
+
+- name: Install Apps (Snap)
   community.general.snap:
     name: "{{ item }}"
     state: present
-  loop: "{{ snap_core_packages }}"
+  loop: "{{ snap_combined_apps }}"
