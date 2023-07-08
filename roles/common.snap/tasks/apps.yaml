@@ -1,0 +1,6 @@
+---
+- name: Install Core Apps
+  community.general.snap:
+    name: "{{ item }}"
+    state: present
+  loop: "{{ snap_core_packages }}"
