@@ -27,6 +27,6 @@ graphical_apps:
 dev_apps:
   - aws-cli-v2-bin
 
-av_enabled: "{% if laptop == true %}true{% else %}false{% endif %}"
-stream_enabled: "{% if laptop == true %}true{% else %}false{% endif %}"
+av_enabled: "{% if laptop|bool == true %}true{% else %}false{% endif %}"
+stream_enabled: "{% if laptop|bool == true %}true{% else %}false{% endif %}"
 graphics_card_enabled: "{% if nvidia_check != 2 %}true{% else %}false{% endif %}"
