@@ -1,4 +1,4 @@
-yay_repo: "https://aur.archlinux.org/yay-bin.git"
+yay_repo: "https://aur.archlinux.org/yay.git"
 
 # aur packages
 aur_core_packages:
