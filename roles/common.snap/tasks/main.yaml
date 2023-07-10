@@ -16,5 +16,11 @@
     use: yay
   when: snap_check != 2
 
+- name: Enable Snapd
+  systemd:
+    state: started
+    enabled: true
+    name: snapd
+
 - include_tasks: apps.yaml
   when: snap_check != 2
