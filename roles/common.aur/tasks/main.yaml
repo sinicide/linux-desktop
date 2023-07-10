@@ -22,5 +22,9 @@
   register: yay_make
   when: "yay_check != 0"
 
+- debug:
+    msg: "{{ yay_make.stdout }}"
+  when: "yay_check != 0"
+
 - include_tasks: apps.yaml
   when: yay_check != 2
