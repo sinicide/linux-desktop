@@ -16,7 +16,7 @@
   when: "yay_check != 0"
 
 - name: Install Yay
-  shell: "cd /tmp/yay-bin && makepkg -si --noconfirm"
+  shell: "cd /tmp/yay && makepkg -si --noconfirm"
   become: no
   failed_when: "yay_make == 2"
   register: yay_make
