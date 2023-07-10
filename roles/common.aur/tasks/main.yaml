@@ -13,14 +13,14 @@
   git:
     dest: "/tmp"
     repo: "{{ yay_repo }}"
-  when: "yay_check == 2"
+  when: "yay_check != 0"
 
 - name: Install Yay
   shell: "cd /tmp/yay-bin && makepkg -si"
   become: no
   failed_when: "yay_make == 2"
   register: yay_make
-  when: "yay_check == 2"
+  when: "yay_check != 0"
 
 - include_tasks: apps.yaml
   when: yay_check != 2
