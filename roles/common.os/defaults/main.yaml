@@ -75,7 +75,7 @@ av_edit_apps:
 # graphics
 graphic_apps:
   - gimp
-  - okula
+  - okular
   - krita
 
 # streaming/production
