@@ -46,3 +46,4 @@
     name: "{{ item }}"
     state: present
   loop: "{{ pacman_combined_apps }}"
+  become: true
