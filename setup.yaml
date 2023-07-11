@@ -30,3 +30,10 @@
   tasks:
     - import_role:
         name: common.appimage
+
+- name: Configure User
+  hosts: desktop
+  tags: user,dotfiles
+  tasks:
+    - import_role:
+        name: user 
