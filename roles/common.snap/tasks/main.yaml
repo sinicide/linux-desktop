@@ -16,25 +16,11 @@
     use: yay
   when: snap_check != 2
 
-- name: Enable AppArmor
-  systemd:
-    state: started
-    enabled: true
-    name: apparmor
-  become: true
-
-- name: Enable Snapd AppArmor
-  systemd:
-    state: started
-    enabled: true
-    name: snapd.apparmor
-  become: true
-
 - name: Enable Snapd
   systemd:
     state: started
     enabled: true
-    name: snapd
+    name: snapd.socket
   become: true
 
 - include_tasks: apps.yaml
