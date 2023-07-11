@@ -21,18 +21,21 @@
     state: started
     enabled: true
     name: apparmor
+  become: true
 
 - name: Enable Snapd AppArmor
   systemd:
     state: started
     enabled: true
     name: snapd.apparmor
+  become: true
 
 - name: Enable Snapd
   systemd:
     state: started
     enabled: true
     name: snapd
+  become: true
 
 - include_tasks: apps.yaml
   when: snap_check != 2
