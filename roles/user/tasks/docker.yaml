@@ -6,9 +6,6 @@
     enabled: true
   become: true
 
-# set sudoless docker
-# create docker group
-# add our user to docker group
 - name: Create Docker Group
   group:
     name: docker
@@ -18,13 +15,12 @@
   set_fact:
     home_user: "{{ lookup('env', 'USER') }}"
 
-- debug:
-    msg: "the user is {{ home_user }}"
+- name: Add User to Docker Group
+  user:
+    name: "{{ home_user }}"
+    groups: "docker"
+    append: true
   become: true
 
-# - name: Add User to Docker Group
-#   user:
-#     name: "{{ home_user }}"
-#     groups: "docker"
-#     append: true
-#   become: true
+- debug:
+    msg: "Will need to logout and back in to apply change"
