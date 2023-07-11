@@ -20,3 +20,4 @@
     name: "{{ item }}"
     state: present
   loop: "{{ snap_combined_apps }}"
+  become: true
