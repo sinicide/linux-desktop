@@ -27,3 +27,15 @@
   args:
     executable: "/bin/bash"
   when: ohmyzsh_check.stat.exists is false
+
+- name: Check for Vim Plugin Manager
+  stat:
+    path: "{{ vim_plug_path }}"
+  register: vim_plug_check
+
+- name: Install Vim Plugin Manager
+  shell: "sh -c \"$(curl -fLo {{ vim_plug_path }} --create-dirs {{ vim_plug_url }})\""
+  become: no
+  args:
+    executable: "/bin/bash"
+  when: vim_plug_check.stat.exists is false
