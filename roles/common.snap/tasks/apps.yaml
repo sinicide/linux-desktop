@@ -1,6 +1,6 @@
 ---
 - name: Check for Nvidia Card
-  shell: "lspci -k | grep -A 2 -E \"(VGA|3D)\""
+  shell: "lspci -k | grep -A 2 -E \"(VGA|3D)\" | grep -c NVIDIA"
   become: no
   failed_when: "nvidia_check == 2"
   register: nvidia_check
