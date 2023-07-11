@@ -1,10 +1,9 @@
-# check if dotfiles exists
+---
 - name: Check for dotfiles directory
   stat:
     path: "{{ dotfiles_user_path }}"
   register: dotfiles_check
   
-# git clone dotfiles
 - name: Git clone .dotfiles
   git:
     dest: "{{ dotfiles_user_path }}"
@@ -16,3 +15,15 @@
   become: no
   args:
     executable: "/bin/bash"
+
+- name: Check for oh-my-zsh
+  stat:
+    path: "{{ oh_my_zsh_path }}"
+  register: ohmyzsh_check
+
+- name: Install oh-my-zsh
+  shell: "sh -c \"$(curl -fsSL {{ oh_my_zsh_url }})\""
+  become: no
+  args:
+    executable: "/bin/bash"
+  when: ohmyzsh_check.stat.exists is false

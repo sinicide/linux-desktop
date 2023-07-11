@@ -1,2 +1,4 @@
 dotfiles_repo: "git@github.com:sinicide/.dotfiles.git"
 dotfiles_user_path: "{{ ansible_facts.user_dir }}/.dotfiles"
+oh_my_zsh_path: "{{ ansible_facts.user_dir }}/.oh-my-zsh"
+oh_my_zsh_url: "https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh"
