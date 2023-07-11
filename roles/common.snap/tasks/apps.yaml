@@ -10,14 +10,18 @@
   set_fact:
     snap_combined_apps: "{{ snap_core_packages }}"
 
-- name: Combined with Graphical Apps
-  set_fact:
-    snap_combined_apps: "{{ snap_core_packages + graphical_apps }}"
-  when: "nvidia_check != 2"
-
 - name: Install Apps (Snap)
   community.general.snap:
     name: "{{ item }}"
     state: present
   loop: "{{ snap_combined_apps }}"
   become: true
+
+- name: Install Fusion360 App (Snap)
+  community.general.snap:
+    name: "fusion360"
+    state: present
+    channel: beta
+    classic: true
+  become: true
+  when: nvidia_check != 2 and nvidia_check.stdout >= 1
