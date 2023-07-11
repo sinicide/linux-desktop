@@ -1,4 +1,10 @@
 ---
-# configure user shell
-# configure dotfiles
 - include_tasks: dotfiles.yaml
+
+- name: Check for Virtualization Enabled
+  set_fact:
+    virt_enabled: true
+  when: ansible_facts.virtualization_type is defined
+
+- include_tasks: docker.yaml
+  when: virt_enabled == true
