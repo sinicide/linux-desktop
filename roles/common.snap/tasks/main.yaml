@@ -16,6 +16,18 @@
     use: yay
   when: snap_check != 2
 
+- name: Enable AppArmor
+  systemd:
+    state: started
+    enabled: true
+    name: apparmor
+
+- name: Enable Snapd AppArmor
+  systemd:
+    state: started
+    enabled: true
+    name: snapd.apparmor
+
 - name: Enable Snapd
   systemd:
     state: started
