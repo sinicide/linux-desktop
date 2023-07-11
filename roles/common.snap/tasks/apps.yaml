@@ -14,6 +14,7 @@
   community.general.snap:
     name: "{{ item }}"
     state: present
+    classic: true
   loop: "{{ snap_combined_apps }}"
   become: true
 
@@ -24,4 +25,4 @@
     channel: beta
     classic: true
   become: true
-  when: nvidia_check != 2 and nvidia_check.stdout >= 1
+  when: nvidia_check.stdout|int >= 1
