@@ -1,0 +1,2 @@
+dotfiles_repo: "git@github.com:sinicide/.dotfiles.git"
+dotfiles_user_path: "{{ ansible_facts.user_dir }}/.dotfiles"

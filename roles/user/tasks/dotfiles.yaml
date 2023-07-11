@@ -1,0 +1,18 @@
+# check if dotfiles exists
+- name: Check for dotfiles directory
+  stat:
+    path: "{{ dotfiles_user_path }}"
+  register: dotfiles_check
+  
+# git clone dotfiles
+- name: Git clone .dotfiles
+  git:
+    dest: "{{ dotfiles_user_path }}"
+    repo: "{{ dotfiles_repo }}"
+  when:  dotfiles_check.stat.isdir is false
+
+- name: Install dotfiles
+  shell: "cd {{ ansible_facts.user_dir }} && STOW_FOLDERS=\"vim,tmux,zsh\" ./.dotfiles/install"
+  become: no
+  args:
+    executable: "/bin/bash"

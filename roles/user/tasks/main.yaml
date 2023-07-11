@@ -1,0 +1,4 @@
+---
+# configure user shell
+# configure dotfiles
+- include_tasks: dotfiles.yaml
