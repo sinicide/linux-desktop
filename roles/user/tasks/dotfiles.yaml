@@ -9,7 +9,7 @@
   git:
     dest: "{{ dotfiles_user_path }}"
     repo: "{{ dotfiles_repo }}"
-  when:  dotfiles_check.stat.isdir is false
+  when: (dotfiles_check.stat.isdir is false) or (dotfiles_check.stat.exists is false)
 
 - name: Install dotfiles
   shell: "cd {{ ansible_facts.user_dir }} && STOW_FOLDERS=\"vim,tmux,zsh\" ./.dotfiles/install"
