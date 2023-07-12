@@ -1,0 +1,18 @@
+---
+- name: Pacman Updates
+  pacman:
+    update_cache: yes
+    upgrade: no
+  become: true
+
+- name: Install OpenVPN Packages (Pacman)
+  pacman:
+    name: "{{ item }}"
+    state: present
+  loop: "{{ openvpn_packages }}"
+  become: true
+
+- debug:
+    msg:
+    - "You can import .ovpn files with"
+    - "nmcli connection import type openvpn file filename.ovpn"

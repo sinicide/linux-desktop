@@ -11,3 +11,5 @@
   when: virt_enabled == true
 
 - include_tasks: gotify.yaml
+
+- include_tasks: openvpn.yaml
