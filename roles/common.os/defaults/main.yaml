@@ -53,6 +53,10 @@ virt_apps:
   - docker
   - docker-compose
   - virt-manager
+  - qemu-desktop
+  - bridge-utils
+  - libguestfs
+  - dnsmasq
 
 # dev ops tools
 dev_apps:
