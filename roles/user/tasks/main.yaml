@@ -1,5 +1,6 @@
 ---
 - include_tasks: dotfiles.yaml
+  tags: dotfiles
 
 - name: Check for Virtualization Enabled
   set_fact:
@@ -8,3 +9,5 @@
 
 - include_tasks: docker.yaml
   when: virt_enabled == true
+
+- include_tasks: gotify.yaml

@@ -1,0 +1,18 @@
+---
+- name: Installing Gotify Dunst
+  kewlfft.aur.aur:
+    name: "gotify-dunst-git"
+    state: present
+    use: yay
+
+- name: Enable gotify-dunst
+  systemd:
+    name: gotify-dunst
+    enabled: true
+    scope: "user"
+    state: "started"
+
+- debug:
+    msg:
+    - "Don't forget to modify client token in ~/.config/gotify-dunst/gotify-dunst.conf"
+    - "And restart services systemctl --user restart gotify-dunst"
