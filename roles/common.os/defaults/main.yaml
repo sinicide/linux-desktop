@@ -16,6 +16,7 @@ pacman_core_apps:
   - zip
   - unzip
   - unrar
+  - pulseaudio-bluetooth
 
 # Terminal Emulators
 terminal_apps:
@@ -81,11 +82,18 @@ graphic_apps:
   - gimp
   - okular
   - krita
+  - darktable
 
 # streaming/production
 stream_apps:
   - obs-studio
   
+# fonts
+fonts_install:
+  - otf-ipafont
+  - ttf-baekmuk
+  - noto-fonts-emoji
+
 graphics_card_enabled: false
 virt_enabled: false
 av_enabled: "{% if laptop|bool == true %}true{% else %}false{% endif %}"
