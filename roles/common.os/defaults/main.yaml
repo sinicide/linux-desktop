@@ -76,6 +76,7 @@ av_edit_apps:
   - mkvtoolnix-cli
   - mkvtoolnix-gui
   - audacity
+  - libdvdcss
 
 # graphics
 graphic_apps:
