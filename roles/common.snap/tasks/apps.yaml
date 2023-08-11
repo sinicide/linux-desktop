@@ -17,12 +17,3 @@
     classic: true
   loop: "{{ snap_combined_apps }}"
   become: true
-
-- name: Install Fusion360 App (Snap)
-  community.general.snap:
-    name: "fusion360"
-    state: present
-    channel: beta
-    classic: true
-  become: true
-  when: nvidia_check.stdout|int >= 1

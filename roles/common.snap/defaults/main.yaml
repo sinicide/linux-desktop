@@ -3,6 +3,3 @@ snap_core_packages:
   - tradingview
   - spotify
   - signal-desktop
-
-graphical_apps:
-  - fusion360
