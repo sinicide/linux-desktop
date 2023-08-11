@@ -19,9 +19,10 @@ av_edit_apps:
 stream_apps:
   - streamdeck-ui
 
-# 3d printing
+# 3d printing/Graphics Card useful
 graphical_apps:
   - chitubox-free-bin
+  - looking-glass
 
 # dev tools
 dev_apps:
