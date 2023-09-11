@@ -17,6 +17,7 @@ pacman_core_apps:
   - unzip
   - unrar
   - pulseaudio-bluetooth
+  - nfs-utils
 
 # Terminal Emulators
 terminal_apps:
