@@ -9,6 +9,7 @@ aur_core_packages:
   - google-chrome
   - 7-zip-bin
   - dropbox
+  - tzupdate
 
 # Audio Video Apps
 av_edit_apps:
