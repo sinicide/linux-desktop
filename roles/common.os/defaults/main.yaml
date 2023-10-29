@@ -18,6 +18,7 @@ pacman_core_apps:
   - unrar
   - pulseaudio-bluetooth
   - nfs-utils
+  - gnu-netcat
 
 # Terminal Emulators
 terminal_apps:
