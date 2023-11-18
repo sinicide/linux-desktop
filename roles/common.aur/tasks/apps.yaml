@@ -15,6 +15,11 @@
     aur_combined_apps: "{{ aur_combined_apps + av_edit_apps }}"
   when: "av_enabled == true"
 
+- name: Combined with Graphics Apps
+  set_fact:
+    aur_combined_apps: "{{ aur_combined_apps + image_apps }}"
+  when: "image_apps_enabled == true"
+
 - name: Combined with Streaming/Production Apps
   set_fact:
     aur_combined_apps: "{{ aur_combined_apps + stream_apps }}"

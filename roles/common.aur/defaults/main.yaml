@@ -11,6 +11,10 @@ aur_core_packages:
   - dropbox
   - tzupdate
 
+# Graphical Apps
+image_apps:
+  - inkscape
+
 # Audio Video Apps
 av_edit_apps:
   - subtitleedit
@@ -29,6 +33,7 @@ graphical_apps:
 dev_apps:
   - aws-cli-v2-bin
 
+image_apps_enabled: "true"
 av_enabled: "{% if laptop|bool == true %}true{% else %}false{% endif %}"
 stream_enabled: "{% if laptop|bool == true %}true{% else %}false{% endif %}"
 graphics_card_enabled: "{% if nvidia_check != 2 %}true{% else %}false{% endif %}"
