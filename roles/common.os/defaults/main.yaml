@@ -61,6 +61,7 @@ virt_apps:
   - libguestfs
   - dnsmasq
   - swtpm
+  - freerdp
 
 # dev ops tools
 dev_apps:
