@@ -60,6 +60,7 @@ virt_apps:
   - bridge-utils
   - libguestfs
   - dnsmasq
+  - swtpm
 
 # dev ops tools
 dev_apps:
