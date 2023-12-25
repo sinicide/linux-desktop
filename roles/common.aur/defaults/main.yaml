@@ -17,7 +17,7 @@ image_apps:
 
 # Audio Video Apps
 av_edit_apps:
-  - subtitleedit
+  - subtitlecomposer
   - davinci-resolve
 
 # Streaming/Production
