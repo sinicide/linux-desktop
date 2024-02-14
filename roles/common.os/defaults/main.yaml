@@ -19,6 +19,7 @@ pacman_core_apps:
   - pulseaudio-bluetooth
   - nfs-utils
   - gnu-netcat
+  - cronie
 
 # Terminal Emulators
 terminal_apps:
