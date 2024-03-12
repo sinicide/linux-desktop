@@ -20,6 +20,7 @@ pacman_core_apps:
   - nfs-utils
   - gnu-netcat
   - cronie
+  - zoxide
 
 # Terminal Emulators
 terminal_apps:
