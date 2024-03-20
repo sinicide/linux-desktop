@@ -27,6 +27,15 @@ terminal_apps:
   - alacritty
   - xterm
 
+# x11
+x11_apps:
+  - xclip
+  - xsel
+
+# wayland
+wayland_apps:
+  - wl-clipboard
+
 # File Manager
 filemanager_apps:
   - dolphin
