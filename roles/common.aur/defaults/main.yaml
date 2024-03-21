@@ -10,6 +10,7 @@ aur_core_packages:
   - 7-zip-bin
   - dropbox
   - tzupdate
+  - qmk-git
 
 # Graphical Apps
 image_apps:
