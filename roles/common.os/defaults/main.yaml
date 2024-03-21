@@ -21,6 +21,7 @@ pacman_core_apps:
   - gnu-netcat
   - cronie
   - zoxide
+  - dfu-programmer
 
 # Terminal Emulators
 terminal_apps:
