@@ -80,6 +80,7 @@ dev_apps:
   - terraform
   - github-cli
   - kubectl
+  - npm
 
 # Audio and Video
 media_apps:
@@ -104,7 +105,7 @@ graphic_apps:
 # streaming/production
 stream_apps:
   - obs-studio
-  
+
 # fonts
 fonts_install:
   - otf-ipafont
