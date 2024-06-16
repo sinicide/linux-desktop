@@ -11,6 +11,7 @@ aur_core_packages:
   - dropbox
   - tzupdate
   - qmk-git
+  - tochd
 
 # Graphical Apps
 image_apps:
