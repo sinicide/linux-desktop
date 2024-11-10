@@ -12,6 +12,9 @@ aur_core_packages:
   - tzupdate
   - qmk-git
   - tochd
+  - brscan5
+  - gscan2pdf
+  - pdftk
 
 # Graphical Apps
 image_apps:
