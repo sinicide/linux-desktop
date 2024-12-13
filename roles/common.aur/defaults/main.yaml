@@ -33,6 +33,9 @@ stream_apps:
 graphical_apps:
   - chitubox-free-bin
   - looking-glass
+  - lycheeslicer
+  - orca-slicer-bin
+  - bambustudio-bin
 
 # dev tools
 dev_apps:
