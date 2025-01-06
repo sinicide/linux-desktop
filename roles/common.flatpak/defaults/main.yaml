@@ -1,0 +1,9 @@
+flatpak_core_packages:
+  - "com.usebottles.bottles"
+
+video_app_packages:
+  - "com.obsproject.Studio"
+
+flatpak_combined_apps: "{{ flatpak_core_packages | combine(video_app_packages) }}"
+
+flatpak_installation_method: "user"

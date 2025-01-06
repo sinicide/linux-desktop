@@ -1,0 +1,13 @@
+---
+- name: Install flatpak
+  pacman:
+    name: "flatpak"
+    state: present
+  become: true
+
+- name: Install Apps (Flatpak)
+  community.general.flatpak:
+    name: "{{ item }}"
+    state: present
+  loop: "{{ flatpak_combined_apps }}"
+  system: "{{ flatpak_installation_method }}"
