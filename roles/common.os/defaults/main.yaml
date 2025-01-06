@@ -104,8 +104,8 @@ graphic_apps:
   - darktable
 
 # streaming/production
-stream_apps:
-  - obs-studio
+#stream_apps:
+#  - obs-studio
 
 # fonts
 fonts_install:
