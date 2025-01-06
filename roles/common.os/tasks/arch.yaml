@@ -4,7 +4,7 @@
     home_user: "{{ lookup('env', 'USER') }}"
 
 - name: Check for Nvidia Card
-  shell: "lspci -k | grep -A 2 -E \"(VGA|3D)\""
+  shell: 'lspci -k | grep -A 2 -E "(VGA|3D)"'
   become: no
   failed_when: "nvidia_check == 2"
   register: nvidia_check
@@ -39,11 +39,6 @@
   set_fact:
     pacman_combined_apps: "{{ pacman_combined_apps + av_edit_apps }}"
   when: "av_enabled == true"
-
-- name: Combine with Streaming/Production Apps
-  set_fact:
-    pacman_combined_apps: "{{ pacman_combined_apps + stream_apps }}"
-  when: "streaming_enabled == true"
 
 - name: Install Apps (Pacman)
   pacman:
