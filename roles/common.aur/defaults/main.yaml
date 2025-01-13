@@ -25,10 +25,6 @@ av_edit_apps:
   - subtitlecomposer
   - davinci-resolve
 
-# Streaming/Production
-stream_apps:
-  - streamdeck-ui
-
 # 3d printing/Graphics Card useful
 graphical_apps:
   - chitubox-free-bin
