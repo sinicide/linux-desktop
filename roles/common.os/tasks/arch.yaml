@@ -10,6 +10,14 @@
   register: nvidia_check
   changed_when: false
 
+- name: Set Parallel Compilation in pacman.conf
+  shell: 'sed -i -E "s/^#(ParallelDownloads.+)/\1/" {{ pacman_config }}'
+  become: yes
+
+- name: Set MAKEFLAGS
+  shell: 'sed -E "s/^#(MAKEFLAGS=\"-j).+/\1\$\(nproc\)\"/" {{ makepkg_config }}'
+  become: yes
+
 - name: Pacman Updates
   pacman:
     update_cache: yes

@@ -118,3 +118,6 @@ virt_enabled: false
 av_enabled: "{% if laptop|bool == true %}true{% else %}false{% endif %}"
 streaming_enabled: "{% if laptop|bool == true %}true{% else %}false{% endif %}"
 nvidia_enabled: "{% if nvidia_check != 2 %}true{% else %}false{% endif %}"
+
+pacman_config: "/etc/pacman.conf"
+makepkg_config: "/etc/makepkg.conf"
