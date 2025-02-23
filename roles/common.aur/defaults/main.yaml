@@ -15,6 +15,7 @@ aur_core_packages:
   - brscan5
   - gscan2pdf
   - pdftk
+  - gotify-desktop
 
 # Graphical Apps
 image_apps:
