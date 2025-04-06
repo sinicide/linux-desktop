@@ -16,6 +16,7 @@ aur_core_packages:
   - gscan2pdf
   - pdftk
   - gotify-desktop
+  - librewolf-bin
 
 # Graphical Apps
 image_apps:
