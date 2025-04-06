@@ -1,0 +1,6 @@
+- name: Install KDE Plasma
+  pacman:
+    name: "{{ item }}"
+    state: present
+  loop: "{{ kde_desktop_apps }}"
+  become: true

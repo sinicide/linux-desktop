@@ -1,0 +1,28 @@
+desktop_environment:
+  enabled: false
+
+kde_desktop_apps:
+  - plasma-desktop
+  - dolphin
+  - dolphin-plugins
+  - ark
+  - ffmpegthumbs
+  - filelight
+  - kcalc
+  - kdeconnect
+  - kdegraphics-thumbnailers
+  - kdialog
+  - konsole
+  - bluedevil
+  - kde-gtk-config
+  - kdeplasma-addons
+  - kinfocenter
+  - kscreen
+  - kwrited
+  - plasma-disks
+  - plasma-firewall
+  - plasma-nm
+  - plasma-pa
+  - plasma-systemmonitor
+  - plasma-thunderbolt
+  - sddm-kcm
