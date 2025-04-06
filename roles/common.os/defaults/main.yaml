@@ -38,10 +38,6 @@ x11_apps:
 wayland_apps:
   - wl-clipboard
 
-# File Manager
-filemanager_apps:
-  - dolphin
-
 # OS Specific
 hardware_package:
   - amd-ucode
@@ -102,6 +98,7 @@ graphic_apps:
   - okular
   - krita
   - darktable
+  - qview
 
 # streaming/production
 #stream_apps:
