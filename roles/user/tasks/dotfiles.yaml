@@ -1,41 +1,29 @@
 ---
 - name: Check for dotfiles directory
   stat:
-    path: "{{ dotfiles_user_path }}"
+    path: "/home/{{ username }}/.dotfiles"
   register: dotfiles_check
-  
+
 - name: Git clone .dotfiles
   git:
-    dest: "{{ dotfiles_user_path }}"
+    dest: "/home/{{ username }}/.dotfiles"
     repo: "{{ dotfiles_repo }}"
   when: (dotfiles_check.stat.isdir is false) or (dotfiles_check.stat.exists is false)
 
 - name: Install dotfiles
-  shell: "cd {{ ansible_facts.user_dir }} && STOW_FOLDERS=\"vim,tmux,zsh\" ./.dotfiles/install"
+  shell: 'cd /home/{{ username }} && STOW_FOLDERS="nvim,tmux,zsh,alacritty" ./.dotfiles/install'
   become: no
   args:
     executable: "/bin/bash"
 
 - name: Check for oh-my-zsh
   stat:
-    path: "{{ oh_my_zsh_path }}"
+    path: "/home/{{ username }}/.oh-my-zsh"
   register: ohmyzsh_check
 
 - name: Install oh-my-zsh
-  shell: "sh -c \"$(curl -fsSL {{ oh_my_zsh_url }})\""
+  shell: 'sh -c "$(curl -fsSL {{ oh_my_zsh_url }})"'
   become: no
   args:
     executable: "/bin/bash"
   when: ohmyzsh_check.stat.exists is false
-
-- name: Check for Vim Plugin Manager
-  stat:
-    path: "{{ vim_plug_path }}"
-  register: vim_plug_check
-
-- name: Install Vim Plugin Manager
-  shell: "sh -c \"$(curl -fLo {{ vim_plug_path }} --create-dirs {{ vim_plug_url }})\""
-  become: no
-  args:
-    executable: "/bin/bash"
-  when: vim_plug_check.stat.exists is false
