@@ -1,18 +1,17 @@
 ---
-- name: Installing Gotify Dunst
-  kewlfft.aur.aur:
-    name: "gotify-dunst-git"
-    state: present
-    use: yay
+# check if gotify-desktop is installed
+- name: Check for gotify-desktop
+  shell: "pacman -Q gotify-desktop"
+  become: no
+  failed_when: "gotify_desktop_check == 2"
+  register: gotify_desktop_check
+  changed_when: false
 
-- name: Enable gotify-dunst
-  systemd:
-    name: gotify-dunst
-    enabled: true
-    scope: "user"
-    state: "started"
-
-- debug:
-    msg:
-    - "Don't forget to modify client token in ~/.config/gotify-dunst/gotify-dunst.conf"
-    - "And restart services systemctl --user restart gotify-dunst"
+# copy configuration toml
+- name: Copy gotify desktop configuration
+  template:
+    src: "../templates/gotify_desktop_config.toml.j2"
+    dest: "/home/{{ username }}/.config/gotify-desktop/config.toml"
+    owner: "{{ username }}"
+    group: "{{ username }}"
+  when: gotify_desktop_check != 2
