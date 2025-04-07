@@ -1,14 +1,22 @@
 yay_repo: "https://aur.archlinux.org/yay.git"
 
+laptop: false
+
+aur:
+  av_install: false
+  3d_printing_install: false
+  ledger_install: false
+  dropbox_install: false
+  browser_install: true
+  image_pkg_install: true
+  dev_install: true
+
 # aur packages
 aur_core_packages:
   - sublime-text-4
   - visual-studio-code-bin
   - ventoy-bin
-  - ledger-live-bin
-  - google-chrome
   - 7-zip-bin
-  - dropbox
   - tzupdate
   - qmk-git
   - tochd
@@ -16,7 +24,13 @@ aur_core_packages:
   - gscan2pdf
   - pdftk
   - gotify-desktop
+
+browser_packages:
+  - google-chome
   - librewolf-bin
+
+ledger_package: "ledger-live-bin"
+dropbox_package: "dropbox"
 
 # Graphical Apps
 image_apps:
@@ -27,19 +41,18 @@ av_edit_apps:
   - subtitlecomposer
   - davinci-resolve
 
-# 3d printing/Graphics Card useful
+# apps that require a graphics card
 graphical_apps:
-  - chitubox-free-bin
   - looking-glass
-  - lycheeslicer
-  - orca-slicer-bin
+
+# 3d printing slicer apps
+3d_printing_apps:
   - bambustudio-bin
+  - orca-slicer-bin
+  - chitubox-free-bin
 
 # dev tools
 dev_apps:
   - aws-cli-v2-bin
 
-image_apps_enabled: "true"
-av_enabled: "{% if laptop|bool == true %}true{% else %}false{% endif %}"
-stream_enabled: "{% if laptop|bool == true %}true{% else %}false{% endif %}"
 graphics_card_enabled: "{% if nvidia_check != 2 %}true{% else %}false{% endif %}"

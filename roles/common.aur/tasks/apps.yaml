@@ -6,29 +6,67 @@
   register: nvidia_check
   changed_when: false
 
-- name: Set Base Apps to Install
-  set_fact:
-    aur_combined_apps: "{{ aur_core_packages + dev_apps }}"
-
-- name: Combined with Audio/Video Apps
-  set_fact:
-    aur_combined_apps: "{{ aur_combined_apps + av_edit_apps }}"
-  when: "av_enabled == true"
-
-- name: Combined with Graphics Apps
-  set_fact:
-    aur_combined_apps: "{{ aur_combined_apps + image_apps }}"
-  when: "image_apps_enabled == true"
-
-- name: Combined with 3D Printing Apps
-  set_fact:
-    aur_combined_apps: "{{ aur_combined_apps + graphical_apps }}"
-  when: "graphics_card_enabled == true"
-
-- name: Install Apps (AUR)
+- name: Install Core Apps
   kewlfft.aur.aur:
     name: "{{ item }}"
     state: present
     use: yay
-  loop: "{{ aur_combined_apps }}"
+  loop: "{{ aur_core_packages }}"
 
+- name: Install Browser Apps
+  kwelfft.aur.aur:
+    name: "{{ item }}"
+    state: present
+    use: yay
+  loop: "{{ browser_packages }}"
+  when: aur.browser_install|bool
+
+- name: Install Ledger App
+  kwelfft.aur.aur:
+    name: "{{ ledger_package }}"
+    state: present
+    use: yay
+  when: aur.ledger_install|bool
+
+- name: Install Dropbox App
+  kwelfft.aur.aur:
+    name: "{{ dropbox_package }}"
+    state: present
+    use: yay
+  when: aur.dropbox_install|bool
+
+- name: Install Audio/Video Editing Apps
+  kwelfft.aur.aur:
+    name: "{{ item }}"
+    state: present
+    use: yay
+  loop: "{{ av_edit_apps }}"
+  when:
+    - aur.av_install|bool
+    - not laptop|bool
+
+- name: Install Graphics Apps
+  kwelfft.aur.aur:
+    name: "{{ item }}"
+    state: present
+    use: yay
+  loop: "{{ image_apps }}"
+  when: aur.image_pkg_install|bool
+
+- name: Install 3D Printing Apps
+  kwelfft.aur.aur:
+    name: "{{ item }}"
+    state: present
+    use: yay
+  loop: "{{ 3d_printing_apps }}"
+  when:
+    - aur.3d_printing_install|bool
+    - graphics_card_enabled|bool
+
+- name: Install Dev Tools
+  kwelfft.aur.aur:
+    name: "{{ item }}"
+    state: present
+    use: yay
+  loop: "{{ dev_apps }}"
+  when: aur.dev_install|bool
