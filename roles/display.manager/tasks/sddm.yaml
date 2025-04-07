@@ -1,0 +1,58 @@
+---
+- name: Install Display Manager (SDDM)
+  pacman:
+    name: "{{ sddm_package }}"
+    state: present
+  become: true
+
+- name: Install SDDM KDE Integration
+  pacman:
+    name: "sddm-kcm"
+    state: present
+  become: true
+  when: display_manager.type == "plasma"
+
+- name: Enable SDDM
+  systemd:
+    name: "{{ sddm_package }}"
+    enabled: true
+    state: "started"
+
+# Install custom theme(s)
+- name: Download Sugar Candy SDDM theme
+  get_url:
+    url: "{{ sugar_candy_download }}"
+    dest: "/tmp/sugar-candy.tar.gz"
+
+# unarchive
+- name: Extract Sugar Candy SDDM Theme
+  unarchive:
+    src: "/tmp/sugar-candy.tar.gz"
+    dest: "{{ sddm_themes_dir }}"
+    owner: "root"
+    group: "root"
+  become: yes
+
+# copy over theme configuration and files
+- name: Configuring Theme
+  template:
+    src: "../templates/sugar_candy_theme.conf.j2"
+    dest: "{{ sddm_themes_dir }}/sugar-candy/theme.conf"
+    owner: "root"
+    group: "root"
+
+# install theme dependencies
+- name: Install theme dependencies
+  pacman:
+    name: "{{ item }}"
+    state: present
+  become: true
+  loop: "{{ theme_depen_packages }}"
+
+- name: Set Sugar Candy as default SDDM
+  template:
+    src: "../templates/sddm.conf.j2"
+    dest: "{{ sddm_conf }}"
+    owner: "root"
+    group: "root"
+

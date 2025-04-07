@@ -1,0 +1,2 @@
+- include_tasks: sddm.yaml
+  when: display_manager.type == "sddm"

@@ -1,0 +1,14 @@
+display_manager:
+  enabled: false
+  type: "sddm"
+
+sddm_package: "sddm"
+sddm_themes_dir: "/usr/share/sddm/themes"
+sddm_conf: "/etc/sddm.conf"
+sddm_theme: "sugar-candy"
+
+sugar_candy_download: "https://framagit.org/MarianArlt/sddm-sugar-candy/-/archive/master/sddm-sugar-candy-master.tar.gz"
+theme_depen_packages:
+  - "qt5-graphicaleffects"
+  - "qt5-quickcontrols2"
+  - "qt5-svg"
