@@ -4,6 +4,34 @@
     path: "/home/{{ username }}/.dotfiles"
   register: dotfiles_check
 
+- name: Installing Required Packages for Dotfiles
+  pacman:
+    name: "{{ item }}"
+    state: present
+  loop: "{{ dotfiles_packages }}"
+  become: true
+
+- name: Check for X11/Wayland Session
+  shell: "ps aux | grep [w]ayland"
+  become: no
+  failed_when: "wayland_ps == 2"
+  register: wayland_ps
+  changed_when: false
+
+- name: Installing X11 specific packages for Dotfiles
+  pacman:
+    name: "{{ item }}"
+    state: present
+  loop: "{{ dotfiles_packages_x11 }}"
+  when: wayland_ps != 0
+
+- name: Installing Wayland specific packages for Dotfiles
+  pacman:
+    name: "{{ item }}"
+    state: present
+  loop: "{{ dotfiles_packages_wayland }}"
+  when: wayland_ps == 0
+
 - name: Git clone .dotfiles
   git:
     dest: "/home/{{ username }}/.dotfiles"
