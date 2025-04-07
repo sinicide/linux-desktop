@@ -61,6 +61,10 @@ all:
         endpoint: "gotify.sin.lan:443"
         user_token: "xxxxx"
 
+      # OpenVPN installation
+      openvpn:
+        enabled: false
+
 desktop:
   hosts:
     localhost:
