@@ -5,6 +5,22 @@
     - import_role:
         name: common.os
 
+- name: Install Desktop Environment
+  hosts: desktop
+  tags: de
+  tasks:
+    - import_role:
+        name: desktop.environment
+      when:
+        - desktop_environment.enabled|bool
+        - not window_manager.enabled|bool
+
+    - import_role:
+        name: display.manager
+      when:
+        - display_manager.enabled|bool
+        - not window_manager.enabled|bool
+
 - name: Install AUR Packages
   hosts: desktop
   tags: aur
@@ -16,19 +32,32 @@
   hosts: desktop
   tags: snap
   tasks:
+    # requires aur
     - import_role:
         name: common.snap
+      when: snap.enabled|bool
 
 - name: Install AppImage Applications
   hosts: desktop
   tags: appimage
   tasks:
+    # requires aur
     - import_role:
         name: common.appimage
+      when: appimage.enabled|bool
+
+- name: Install Flatpak Applications
+  hosts: desktop
+  tags: flatpak
+  tasks:
+    - import_role:
+        name: common.flatpak
+      when: flatpak.enabled|bool
 
 - name: Configure User
   hosts: desktop
   tags: user,dotfiles
   tasks:
     - import_role:
-        name: user 
+        name: user
+
