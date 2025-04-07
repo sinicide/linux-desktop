@@ -1,7 +1,16 @@
 ---
+- name: Get User
+  set_fact:
+    home_user: "{{ lookup('env', 'USER') }}"
+
+# Install Dotfiles
 - include_tasks: dotfiles.yaml
   tags: dotfiles
+  vars:
+    username: "{{ home_user }}"
+  when: user.dotfiles_install|bool
 
+# Configure Docker
 - name: Check for Virtualization Enabled
   set_fact:
     virt_enabled: true
@@ -11,5 +20,9 @@
   when: virt_enabled == true
 
 - include_tasks: gotify.yaml
+  vars:
+    username: "{{ home_user }}"
+  when: gotify.enabled|bool
 
 - include_tasks: openvpn.yaml
+  when: openvpn.enabled|bool
