@@ -3,5 +3,5 @@ appimage_dir: "{{ ansible_facts.user_dir }}/Applications"
 appimage:
   3d_printing_apps_install: false
 
-lycheeslicer_download: "https://mango-lychee.nyc3.cdn.digitaloceanspaces.com/LycheeSlicer-7.3.1.AppImage"
-
+lycheeslicer_version: "7.3.1"
+lycheeslicer_download: "https://mango-lychee.nyc3.cdn.digitaloceanspaces.com/LycheeSlicer-{{ lycheeslicer_version }}.AppImage"
