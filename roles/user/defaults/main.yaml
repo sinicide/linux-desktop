@@ -16,6 +16,9 @@ dotfiles_packages_wayland:
 
 dotfiles_repo: "git@github.com:sinicide/.dotfiles.git"
 oh_my_zsh_url: "https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh"
+openvpn:
+  enabled: "{{ user.openvpn.enabled | default(false) }}"
+
 openvpn_packages:
   - openvpn
   - networkmanager-openvpn
