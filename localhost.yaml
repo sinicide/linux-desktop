@@ -3,6 +3,7 @@ all:
   vars:
     ansible_connection: local
     laptop: false
+    dotfiles_install: false
 
     # Desktop Environment Configuration
     desktop_environment:
@@ -50,6 +51,15 @@ all:
       obs_install: false
       streamdeck_install: false
       prusaslicer_install: false
+
+    # User Configuration
+    user:
+      dotfiles_install: false
+      # Gotify Desktop Configuration
+      gotify:
+        enabled: false
+        endpoint: "gotify.sin.lan:443"
+        user_token: "xxxxx"
 
 desktop:
   hosts:
