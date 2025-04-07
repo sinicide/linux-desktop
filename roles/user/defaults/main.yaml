@@ -1,9 +1,27 @@
+dotfiles_packages:
+  - nvim
+  - stow
+  - git
+  - fzf
+  - zoxide
+  - ripgrep
+  - npm
+
+dotfiles_packages_x11:
+  - xsel
+  - xclip
+
+dotfiles_packages_wayland:
+  - wl-clipboard
+
 dotfiles_repo: "git@github.com:sinicide/.dotfiles.git"
-dotfiles_user_path: "{{ ansible_facts.user_dir }}/.dotfiles"
-oh_my_zsh_path: "{{ ansible_facts.user_dir }}/.oh-my-zsh"
 oh_my_zsh_url: "https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh"
-vim_plug_path: "{{ ansible_facts.user_dir }}/.vim/autoload/plug.vim"
-vim_plug_url: "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
 openvpn_packages:
   - openvpn
   - networkmanager-openvpn
+
+# Gotify Desktop Configuration
+gotify:
+  enabled: "{{ user.gotify.enabled | default(false) }}"
+  url: "wss://{{ user.gotify.endpoint }}"
+  user_token: "{{ user.gotify.user_token }}"
