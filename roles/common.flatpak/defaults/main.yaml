@@ -1,9 +1,21 @@
+flatpak:
+  enabled: false
+  obs_install: false
+  streamdeck_install: false
+  prusaslicer_install: false
+
+# installation method, user|system
+flatpak_installation_method: "{{ flatpak.installation_method | default('user') }}"
+
 flatpak_core_packages:
+  - "com.github.tchx84.Flatseal"
   - "com.usebottles.bottles"
 
-video_app_packages:
-  - "com.obsproject.Studio"
+# OBS Application
+obs_package: "com.obsproject.Studio"
 
-flatpak_combined_apps: "{{ flatpak_core_packages | combine(video_app_packages) }}"
+# Stream Deck Controller Application
+stream_controller_package: "com.core447.StreamController"
 
-flatpak_installation_method: "user"
+# PrusaSlicer Application
+prusaslicer_package: "com.prusa3d.PrusaSlicer"

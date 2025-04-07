@@ -1,13 +1,34 @@
 ---
-- name: Install flatpak
+- name: Install Flatpak
   pacman:
     name: "flatpak"
     state: present
   become: true
 
-- name: Install Apps (Flatpak)
+- name: Install Flatpak Core Apps
   community.general.flatpak:
     name: "{{ item }}"
     state: present
-  loop: "{{ flatpak_combined_apps }}"
+  loop: "{{ flatpak_core_packages }}"
   system: "{{ flatpak_installation_method }}"
+
+- name: Install OBS
+  community.general.flatpak:
+    name: "{{ obs_package }}"
+    state: present
+  system: "{{ flatpak_installation_method }}"
+  when: "{{ flatpak.obs_install|bool }}"
+
+- name: Install Stream Controller App
+  community.general.flatpak:
+    name: "{{ stream_controller_package }}"
+    state: present
+  system: "{{ flatpak_installation_method }}"
+  when: "{{ flatpak.streamdeck_install|bool }}"
+
+- name: Install PrusaSlicer
+  community.general.flatpak:
+    name: "{{ prusaslicer_package }}"
+    state: present
+  system: "{{ flatpak_installation_method }}"
+  when: "{{ flatpak.prusaslicer_install|bool }}"
