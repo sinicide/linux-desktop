@@ -4,6 +4,53 @@ all:
     ansible_connection: local
     laptop: false
 
+    # Desktop Environment Configuration
+    desktop_environment:
+      # default is false
+      enabled: false
+      type: "plasma"
+
+    # Display Manager Configuration
+    display_manager:
+      # default is false
+      enabled: false
+      type: "sddm"
+
+    # Window Manager Configuration
+    window_manager:
+      # default is false
+      enabled: false
+      type: "hyprland"
+
+    # AUR Configuration
+    aur:
+      av_install: false
+      3d_printing_install: false
+      ledger_install: false
+      dropbox_install: false
+      browser_install: true
+      image_pkg_install: true
+      dev_install: true
+
+    # AppImage Configuration
+    appimage:
+      # default is false
+      enabled: false
+      3d_printing_apps_install: false
+
+    # Snap Configuration
+    snap:
+      # default is false
+      enabled: false
+
+    # Flatpak Configuration
+    flatpak:
+      # default is false
+      enabled: false
+      obs_install: false
+      streamdeck_install: false
+      prusaslicer_install: false
+
 desktop:
   hosts:
     localhost:
