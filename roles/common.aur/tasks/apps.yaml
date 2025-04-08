@@ -13,6 +13,13 @@
     use: yay
   loop: "{{ aur_core_packages }}"
 
+- name: Install Fonts
+  kewlfft.aur.aur:
+    name: "{{ item }}"
+    state: present
+    use: yay
+  loop: "{{ fonts_package }}"
+
 - name: Install Browser Apps
   kewlfft.aur.aur:
     name: "{{ item }}"
