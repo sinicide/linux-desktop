@@ -18,6 +18,9 @@ dotfiles_packages_wayland:
 git_clone_method: "{{ user.git_clone_method | default('https') }}"
 dotfiles_repo: "{% if git_clone_method == 'ssh' %}git@github.com:{% else %}https://github.com/{% endif %}sinicide/.dotfiles.git"
 oh_my_zsh_url: "https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh"
+docker:
+  enabled: "{{ user.docker.enabled | default(false) }}"
+
 openvpn:
   enabled: "{{ user.openvpn.enabled | default(false) }}"
 
