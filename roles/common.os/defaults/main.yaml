@@ -10,7 +10,6 @@ pacman_core_apps:
   - veracrypt
   - obsidian
   - nextcloud-client
-  - keybase
   - fzf
   - stow
   - zip
@@ -98,7 +97,6 @@ graphic_apps:
   - okular
   - krita
   - darktable
-  - qview
 
 # streaming/production
 #stream_apps:

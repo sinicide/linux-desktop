@@ -24,6 +24,8 @@ aur_core_packages:
   - gscan2pdf
   - pdftk
   - gotify-desktop
+  - keybase
+  - qview
 
 browser_packages:
   - google-chome
