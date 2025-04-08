@@ -57,6 +57,12 @@ all:
       dotfiles_install: false
       # default is https
       #git_clone_method: "ssh"
+
+      # Docker Configuration
+      docker:
+        # default is false
+        enabled: false
+
       # Gotify Desktop Configuration
       gotify:
         enabled: false
