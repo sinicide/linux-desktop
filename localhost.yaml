@@ -27,7 +27,7 @@ all:
     # AUR Configuration
     aur:
       av_install: false
-      3d_printing_install: false
+      slicer_install: false
       ledger_install: false
       dropbox_install: false
       browser_install: true
@@ -38,7 +38,7 @@ all:
     appimage:
       # default is false
       enabled: false
-      3d_printing_apps_install: false
+      slicer_install: false
 
     # Snap Configuration
     snap:

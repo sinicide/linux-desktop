@@ -47,7 +47,7 @@ graphical_apps:
   - looking-glass
 
 # 3d printing slicer apps
-3d_printing_apps:
+slicer_apps:
   - bambustudio-bin
   - orca-slicer-bin
   - chitubox-free-bin

@@ -65,9 +65,9 @@
     name: "{{ item }}"
     state: present
     use: yay
-  loop: "{{ 3d_printing_apps }}"
+  loop: "{{ slicer_apps }}"
   when:
-    - aur.3d_printing_install|bool
+    - aur.slicer_install|bool
     - graphics_card_enabled|bool
 
 - name: Install Dev Tools

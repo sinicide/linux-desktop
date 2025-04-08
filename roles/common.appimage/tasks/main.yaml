@@ -19,4 +19,4 @@
     mode: 0755
   when:
     - opengl_check != 2
-    - appimage.3d_printing_apps_install|bool
+    - appimage.slicer_install|bool
