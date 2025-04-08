@@ -26,7 +26,7 @@
 
 - name: Set Base Apps to Install
   set_fact:
-    pacman_combined_apps: "{{ pacman_core_apps + terminal_apps + web_browsers_apps + media_apps  + graphic_apps + communication_apps + dev_apps }}"
+    pacman_combined_apps: "{{ pacman_core_apps + audio_apps + terminal_apps + web_browsers_apps + media_apps  + graphic_apps + communication_apps + dev_apps }}"
 
 - name: Add Nvidia Packages
   set_fact:
