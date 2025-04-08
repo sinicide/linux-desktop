@@ -14,7 +14,7 @@
   loop: "{{ aur_core_packages }}"
 
 - name: Install Browser Apps
-  kwelfft.aur.aur:
+  kewlfft.aur.aur:
     name: "{{ item }}"
     state: present
     use: yay
@@ -22,21 +22,21 @@
   when: aur.browser_install|bool
 
 - name: Install Ledger App
-  kwelfft.aur.aur:
+  kewlfft.aur.aur:
     name: "{{ ledger_package }}"
     state: present
     use: yay
   when: aur.ledger_install|bool
 
 - name: Install Dropbox App
-  kwelfft.aur.aur:
+  kewlfft.aur.aur:
     name: "{{ dropbox_package }}"
     state: present
     use: yay
   when: aur.dropbox_install|bool
 
 - name: Install Audio/Video Editing Apps
-  kwelfft.aur.aur:
+  kewlfft.aur.aur:
     name: "{{ item }}"
     state: present
     use: yay
@@ -46,7 +46,7 @@
     - not laptop|bool
 
 - name: Install Graphics Apps
-  kwelfft.aur.aur:
+  kewlfft.aur.aur:
     name: "{{ item }}"
     state: present
     use: yay
@@ -54,7 +54,7 @@
   when: aur.image_pkg_install|bool
 
 - name: Install 3D Printing Apps
-  kwelfft.aur.aur:
+  kewlfft.aur.aur:
     name: "{{ item }}"
     state: present
     use: yay
@@ -64,7 +64,7 @@
     - graphics_card_enabled|bool
 
 - name: Install Dev Tools
-  kwelfft.aur.aur:
+  kewlfft.aur.aur:
     name: "{{ item }}"
     state: present
     use: yay
