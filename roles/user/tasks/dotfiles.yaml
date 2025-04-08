@@ -12,7 +12,7 @@
   become: true
 
 - name: Check for X11/Wayland Session
-  shell: "ps aux | grep [w]ayland"
+  shell: "ps aux | grep -c [w]ayland"
   become: no
   failed_when: "wayland_ps == 2"
   register: wayland_ps
