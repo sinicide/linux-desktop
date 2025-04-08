@@ -41,6 +41,21 @@
     dest: "{{ sugar_candy_theme_dir }}/sddm_wallpaper.png"
     group: "root"
     owner: "root"
+  become: true
+
+- name: Set Screen Width
+  shell: 'xdpyinfo | grep "dimensions" | sed -E "s/.* ([0-9]+)x[0-9]+ pixels.*/\1/"'
+  become: no
+  failed_when: "screen_width == 2"
+  register: screen_width
+  changed_when: false
+
+- name: Set Screen Height
+  shell: 'xdpyinfo | grep "dimensions" | sed -E "s/.* [0-9]+x([0-9]+) pixels.*/\1/"'
+  become: no
+  failed_when: "screen_height == 2"
+  register: screen_height
+  changed_when: false
 
 - name: Configuring Theme
   template:
