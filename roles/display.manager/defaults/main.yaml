@@ -6,6 +6,7 @@ sddm_package: "sddm"
 sddm_themes_dir: "/usr/share/sddm/themes"
 sddm_conf: "/etc/sddm.conf"
 
+sddm_theme: "sddm-sugar-candy-master"
 sugar_candy_download: "https://framagit.org/MarianArlt/sddm-sugar-candy/-/archive/master/sddm-sugar-candy-master.tar.gz"
 sugar_candy_theme_dir: "{{ sddm_themes_dir }}/sddm-sugar-candy-master"
 theme_depen_packages:
