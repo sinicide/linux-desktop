@@ -5,10 +5,14 @@ display_manager:
 sddm_package: "sddm"
 sddm_themes_dir: "/usr/share/sddm/themes"
 sddm_conf: "/etc/sddm.conf"
-sddm_theme: "sugar-candy"
 
 sugar_candy_download: "https://framagit.org/MarianArlt/sddm-sugar-candy/-/archive/master/sddm-sugar-candy-master.tar.gz"
+sugar_candy_theme_dir: "{{ sddm_themes_dir }}/sddm-sugar-candy-master"
 theme_depen_packages:
   - "qt5-graphicaleffects"
   - "qt5-quickcontrols2"
   - "qt5-svg"
+
+# background wallpaper image
+theme_image_url: "https://w.wallhaven.cc/full/9d/wallhaven-9d161x.png"
+theme_background_image: "{{ sugar_candy_theme_dir }}/sddm_wallpaper.png"

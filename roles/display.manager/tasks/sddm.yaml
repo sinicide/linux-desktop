@@ -17,6 +17,7 @@
     name: "{{ sddm_package }}"
     enabled: true
     state: "started"
+  when: not chrooted|bool
 
 # Install custom theme(s)
 - name: Download Sugar Candy SDDM theme
@@ -34,10 +35,17 @@
   become: yes
 
 # copy over theme configuration and files
+- name: Download Wallpaper
+  get_url:
+    url: "{{ theme_image_url }}"
+    dest: "{{ sugar_candy_theme_dir }}/sddm_wallpaper.png"
+    group: "root"
+    owner: "root"
+
 - name: Configuring Theme
   template:
     src: "../templates/sugar_candy_theme.conf.j2"
-    dest: "{{ sddm_themes_dir }}/sugar-candy/theme.conf"
+    dest: "{{ sugar_candy_theme_dir }}/theme.conf"
     owner: "root"
     group: "root"
 
@@ -55,4 +63,3 @@
     dest: "{{ sddm_conf }}"
     owner: "root"
     group: "root"
-
