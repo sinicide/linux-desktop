@@ -14,7 +14,8 @@ dotfiles_packages_x11:
 dotfiles_packages_wayland:
   - wl-clipboard
 
-dotfiles_repo: "git@github.com:sinicide/.dotfiles.git"
+git_clone_method: "{{ user.git_clone_method | default('https') }}"
+dotfiles_repo: "{% if git_clone_method == 'ssh' %}git@github.com:{% else %}https://github.com{% endif %}sinicide/.dotfiles.git"
 oh_my_zsh_url: "https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh"
 openvpn:
   enabled: "{{ user.openvpn.enabled | default(false) }}"
