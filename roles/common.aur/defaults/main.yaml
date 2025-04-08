@@ -57,3 +57,7 @@ dev_apps:
   - aws-cli-v2-bin
 
 graphics_card_enabled: "{% if nvidia_check != 2 %}true{% else %}false{% endif %}"
+
+# fonts
+fonts_package:
+  - nerd-fonts
