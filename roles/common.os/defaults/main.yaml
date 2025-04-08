@@ -70,6 +70,7 @@ virt_apps:
   - dnsmasq
   - swtpm
   - freerdp
+  - dmidecode
 
 # dev ops tools
 dev_apps:
