@@ -9,26 +9,26 @@
   community.general.flatpak:
     name: "{{ item }}"
     state: present
+    method: "{{ flatpak_installation_method }}"
   loop: "{{ flatpak_core_packages }}"
-  method: "{{ flatpak_installation_method }}"
 
 - name: Install OBS
   community.general.flatpak:
     name: "{{ obs_package }}"
     state: present
-  method: "{{ flatpak_installation_method }}"
+    method: "{{ flatpak_installation_method }}"
   when: "{{ flatpak.obs_install|bool }}"
 
 - name: Install Stream Controller App
   community.general.flatpak:
     name: "{{ stream_controller_package }}"
     state: present
-  method: "{{ flatpak_installation_method }}"
+    method: "{{ flatpak_installation_method }}"
   when: "{{ flatpak.streamdeck_install|bool }}"
 
 - name: Install PrusaSlicer
   community.general.flatpak:
     name: "{{ prusaslicer_package }}"
     state: present
-  method: "{{ flatpak_installation_method }}"
+    method: "{{ flatpak_installation_method }}"
   when: "{{ flatpak.prusaslicer_install|bool }}"
