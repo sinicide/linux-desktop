@@ -61,7 +61,9 @@
     enabled: true
     state: "started"
   become: true
-  when: "virt_enabled == true"
+  when:
+    - "virt_enabled == true"
+    - not chrooted|bool
 
 - name: Configure Rootless KVM
   user:
@@ -75,4 +77,6 @@
   systemd:
     name: libvirtd
     state: "restarted"
-  when: "virt_enabled == true"
+  when:
+    - "virt_enabled == true"
+    - not chrooted|bool
