@@ -55,6 +55,8 @@ all:
     # User Configuration
     user:
       dotfiles_install: false
+      # default is https
+      #git_clone_method: "git"
       # Gotify Desktop Configuration
       gotify:
         enabled: false
