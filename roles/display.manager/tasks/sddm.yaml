@@ -63,6 +63,7 @@
     dest: "{{ sugar_candy_theme_dir }}/theme.conf"
     owner: "root"
     group: "root"
+  become: true
 
 # install theme dependencies
 - name: Install theme dependencies
@@ -78,3 +79,4 @@
     dest: "{{ sddm_conf }}"
     owner: "root"
     group: "root"
+  become: true
