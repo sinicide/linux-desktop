@@ -3,7 +3,8 @@ all:
   vars:
     ansible_connection: local
     laptop: false
-    dotfiles_install: false
+    # set to true if running in chroot
+    chrooted: false
 
     # Desktop Environment Configuration
     desktop_environment:
