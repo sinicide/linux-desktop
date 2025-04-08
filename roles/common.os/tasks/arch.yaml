@@ -60,6 +60,7 @@
     name: libvirtd
     enabled: true
     state: "started"
+  become: true
   when: "virt_enabled == true"
 
 - name: Configure Rootless KVM
