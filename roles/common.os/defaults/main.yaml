@@ -15,13 +15,17 @@ pacman_core_apps:
   - zip
   - unzip
   - unrar
-  - pulseaudio-bluetooth
   - nfs-utils
   - gnu-netcat
   - cronie
   - zoxide
   - dfu-programmer
   - git-lfs
+
+audio_apps:
+  - pulseaudio
+  - pulseaudio-alsa
+  - pulseaudio-bluetooth
 
 # Terminal Emulators
 terminal_apps:
