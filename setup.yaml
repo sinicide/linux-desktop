@@ -15,6 +15,10 @@
         - desktop_environment.enabled|bool
         - not window_manager.enabled|bool
 
+- name: Install Display Manager
+  hosts: desktop
+  tags: sddm
+  tasks:
     - import_role:
         name: display.manager
       when:
@@ -60,4 +64,3 @@
   tasks:
     - import_role:
         name: user
-
