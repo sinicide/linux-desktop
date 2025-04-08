@@ -17,7 +17,9 @@
   when: ansible_facts.virtualization_type is defined
 
 - include_tasks: docker.yaml
-  when: virt_enabled == true
+  when:
+    - virt_enabled == true
+    - docker.enabled|bool
 
 - include_tasks: gotify.yaml
   vars:
