@@ -21,6 +21,7 @@ pacman_core_apps:
   - zoxide
   - dfu-programmer
   - git-lfs
+  - usbutils
 
 bluetooth_apps:
   - bluez
