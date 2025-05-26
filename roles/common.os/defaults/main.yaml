@@ -22,6 +22,10 @@ pacman_core_apps:
   - dfu-programmer
   - git-lfs
 
+bluetooth_apps:
+  - bluez
+  - bluez-utils
+
 audio_apps:
   - pulseaudio
   - pulseaudio-alsa
