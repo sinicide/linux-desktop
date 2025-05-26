@@ -40,6 +40,13 @@
     pacman_combined_apps: "{{ pacman_combined_apps + bluetooth_apps }}"
   when: "blue_check != 2"
 
+- name: Enable Bluetooth Service
+  systemd:
+    name: bluetooth
+    state: "started"
+    enabled: "true"
+  when: "blue_check != 2"
+
 - name: Add Nvidia Packages
   set_fact:
     pacman_combined_apps: "{{ pacman_combined_apps + nvidia_apps }}"
