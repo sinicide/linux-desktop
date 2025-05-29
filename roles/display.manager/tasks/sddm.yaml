@@ -12,12 +12,11 @@
   become: true
   when: display_manager.type == "plasma"
 
-#- name: Enable SDDM
-#  systemd:
-#    name: "{{ sddm_package }}"
-#    enabled: true
-#    state: "started"
-#  when: not chrooted|bool
+- name: Enable SDDM
+  systemd:
+    name: "{{ sddm_package }}"
+    enabled: true
+  when: not chrooted|bool
 
 # Install custom theme(s)
 - name: Download Sugar Candy SDDM theme
