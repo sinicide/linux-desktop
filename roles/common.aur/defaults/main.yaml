@@ -25,6 +25,7 @@ aur_core_packages:
   - pdftk
   - gotify-desktop
   - qview
+  - libuvc
 
 browser_packages:
   - google-chome
