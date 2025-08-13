@@ -23,6 +23,15 @@ all:
       # default is false
       enabled: false
       type: "hyprland"
+      # default packages
+      default:
+        audio_middleware: "pulseaudio"
+        file_manager: "dolphin"
+        application_launcher: "rofi"
+        clipboard_manager: "cliphist"
+        desktop_notification: "swaync"
+        status_bar: "waybar"
+        wallpaper_engine: "hyprpaper"
 
     # AUR Configuration
     aur:
@@ -73,6 +82,11 @@ all:
       # OpenVPN installation
       openvpn:
         enabled: false
+
+    # Default apps
+    defaults:
+      file_manager:
+      terminal:
 
 desktop:
   hosts:
