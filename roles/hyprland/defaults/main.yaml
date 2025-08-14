@@ -1,0 +1,48 @@
+hyprland_packages:
+  - "hyprland"
+  - "xdg-desktop-portal-hyprland"
+  - "brightnessctl"
+  - "hyprpolkitagent"
+  - "qt6-wayland"
+
+audio_packages:
+  - "pulseaudio"
+  - "pamixer"
+  - "pavucontrol"
+
+file_manager:
+  - "dolphin"
+  - "nnn"
+
+application_launcher: "{{ hyprland.defaults.application_launcher | default('rofi-wayland') }}"
+clipboard_manager: "cliphist"
+desktop_notification: "{{ hyprland.defaults.desktop_notification | default('swaync') }}"
+status_bar: "{{ hyprland.defaults.status_bar | default('waybar') }}"
+terminal_emulator: "alacritty"
+wallpaper_manager: "hyprpaper"
+screenlock_manager:
+  - "hyprlock"
+  - "hypridle"
+multi_display: ""
+screenshot_app: "hyprshot"
+authentication_app: "polkit-kde-agent"
+image_viewer: ""
+osd_packages:
+  - "avizo" # AUR
+power_menu_package:
+  - "wlogout" #AUR
+
+font_packages:
+  - "otf-font-awesome
+
+bluetooth_packages:
+  - "blueman"
+# wayland_terminal
+# wayland_launcher
+# wayland_navbar
+# wayland_webbrowser
+# wayland_filemanager
+# wayland_wallpaper_manager
+# wayland_
+# combined
+hyprland_combined_packages: ""

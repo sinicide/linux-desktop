@@ -1,0 +1,8 @@
+---
+- name: Gather OS Facts
+  setup:
+    gather_subset:
+      - os_family
+
+- include_tasks: arch.yaml
+  when: ansible_facts.os_family == "Archlinux"

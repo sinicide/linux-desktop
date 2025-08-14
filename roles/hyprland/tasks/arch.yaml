@@ -1,0 +1,28 @@
+---
+- name: Install Hyprland Packages
+  pacman:
+    name: "{{ item }}"
+    state: present
+  become: true
+  loop: "{{ hyprland_combined_packages }}"
+# Install File Manager
+# Launcher (Wofi/rofi-wayland)
+# Wallpaper Manager (hyprpaper)
+# Configures in ~/.config/hypr/hyprpaper.conf
+# Terminal (Alacritty)
+# Bar (Waybar)
+# Install screenshot (hyprshot)
+# Notification Daemon (sway notification center) swaync
+# Notifier (libnotify)
+# Install Lockscreen (hyprlock)
+# Install idler (hypridle)
+# Install pywall for wallpaper coloring to effect waybar
+
+# Configure Bar
+# Configure hyprlock
+# Configure hypridle
+
+# Configure hyprland ~/.config/hypr/hyprland.conf
+
+# check if there's an existing hyprland.conf, if so move file to backup
+#
