@@ -23,6 +23,7 @@ pacman_core_apps:
   - git-lfs
   - usbutils
   - cmake
+  - fd
 
 bluetooth_apps:
   - bluez
