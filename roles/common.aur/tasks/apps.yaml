@@ -77,3 +77,11 @@
     use: yay
   loop: "{{ dev_apps }}"
   when: aur.dev_install|bool
+
+- name: Install Razer App (Devices)
+  kewlfft.aur.aur:
+    name: "{{ item }}"
+    state: present
+    use: yay
+  loop: "{{ razer_apps }}"
+  when: razer_apps|bool
