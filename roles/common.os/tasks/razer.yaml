@@ -1,0 +1,16 @@
+---
+# ensure user is part of plugdev
+- name: Add User to plugdev Group
+  user:
+    name: "{{ ansible_user }}"
+    groups: "plugdev"
+    append: yes
+
+# install openrazer-daemon
+- name: Install opeanrazer-daemon
+  pacman:
+    name: "{{ item }}"
+    state: present
+  loop: "{{ razer_apps }}"
+  become: true
+  when: ansible_facts.os_family == "Archlinux"
