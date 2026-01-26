@@ -10,3 +10,7 @@
 
 - include_tasks: arch.yaml
   when: ansible_facts.os_family == "Archlinux"
+
+- include_tasks: razer.yaml
+  when: razer_apps|bool
+

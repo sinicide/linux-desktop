@@ -129,3 +129,7 @@ nvidia_enabled: "{% if nvidia_check != 2 %}true{% else %}false{% endif %}"
 
 pacman_config: "/etc/pacman.conf"
 makepkg_config: "/etc/makepkg.conf"
+
+# Razer Devices - https://openrazer.github.io
+razer_apps:
+  - openrazer-daemon
