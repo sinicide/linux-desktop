@@ -88,6 +88,14 @@ all:
       file_manager:
       terminal:
 
+    # Razer Apps
+    # for Razer device remapping input
+    razer_apps: false
+
+    # Logiech Apps
+    # for Loigtech device remapping input
+    logitech_apps: false
+
 desktop:
   hosts:
     localhost:

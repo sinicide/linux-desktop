@@ -12,11 +12,11 @@
     groups: "plugdev"
     append: yes
 
-# install openrazer-daemon
-- name: Install opeanrazer-daemon
+# install Solaar
+- name: Install Solaar
   pacman:
     name: "{{ item }}"
     state: present
-  loop: "{{ razer_apps }}"
+  loop: "{{ logitech_apps }}"
   become: true
   when: ansible_facts.os_family == "Archlinux"

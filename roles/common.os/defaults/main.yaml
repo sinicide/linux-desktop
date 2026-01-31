@@ -133,3 +133,7 @@ makepkg_config: "/etc/makepkg.conf"
 # Razer Devices - https://openrazer.github.io
 razer_apps:
   - openrazer-daemon
+
+# Logitech Devices
+logitech_apps:
+  - solaar
