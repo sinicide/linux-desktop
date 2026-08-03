@@ -26,6 +26,7 @@ aur_core_packages:
   - gotify-desktop
   - qview
   - libuvc
+  - spotify
 
 browser_packages:
   - google-chome
